@@ -41,3 +41,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build -f docker/Dockerfile .
+
+
+#added linting , formatting, then build the image only if the quality tests pass. This ensures that we maintain code quality before building the Docker image.
