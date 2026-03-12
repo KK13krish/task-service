@@ -1,0 +1,5 @@
+.env
+.git
+*.md
+docker/
+k8s/
