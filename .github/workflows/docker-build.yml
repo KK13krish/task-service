@@ -26,8 +26,11 @@ jobs:
             exit 1
           fi
 
+      - name: Install golangci-lint
+        run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+
       - name: Run linter
-        uses: golangci/golangci-lint-action@v6
+        run: golangci-lint run
 
       - name: Run tests
         run: go test ./...
@@ -41,3 +44,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build -f docker/Dockerfile .
+
+
+#added linting , formatting, then build the image only if the quality tests pass. This ensures that we maintain code quality before building the Docker image.
